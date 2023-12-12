@@ -1,3 +1,5 @@
+// routes/auth.js
+
 const express = require('express');
 const passport = require('passport');
 const router = express.Router();
@@ -8,14 +10,28 @@ router.get('/login', (req, res) => {
 });
 
 // Login Logic
-router.post(
-  '/login',
-  passport.authenticate('local', {
-    successRedirect: '/query',
-    failureRedirect: '/auth/login',
-    failureFlash: true,
-  })
-);
+router.post('/', async (req, res) => {
+  try {
+      const { username, email, password } = req.body;
+
+      // Check if a user with the provided credentials exists
+      const user = await loginsDal.getUserByCredentials(username, email, password);
+
+      if (user) {
+          // User exists, proceed with the login
+          // For example, you might set a session variable and redirect to the home page
+          req.session.user = user;
+          res.redirect('/');
+      } else {
+          // User not found, display an error message
+          res.render('login', { message: "Invalid username, email, or password." });
+      }
+  } catch (error) {
+      // Handle other errors, log them, and render a 503 page
+      console.error(error);
+      res.render('503');
+  }
+});
 
 // Sign Up Page
 router.get('/signup', (req, res) => {

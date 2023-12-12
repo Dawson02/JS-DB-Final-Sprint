@@ -1,0 +1,21 @@
+<%- include('partials/head') %>
+<%- include('partials/nav') %>
+
+    <main>
+        <section>
+            <h2>Login</h2>
+            <!-- Add your login form or content here -->
+            <form method="POST" action="/login">
+                <!-- Add your form fields -->
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button type="submit">Login</button>
+            </form>
+        </section>
+    </main>
+
+<%- include('partials/foot') %>
