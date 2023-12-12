@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/style.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Event</title>
+</head>
+<body>
+    <div class="eventDeletePage">
+        <%- include('./partials/nav.ejs') %>
+        <h1>Delete Event</h1>
+        <p>Are you sure you want to delete the event with name: <%= locals.event.event_name %>?</p>
+        <form action="/events/<%= locals.event_id %>?_method=DELETE" method="POST">
+            <button type="submit">Yes, Delete Event</button>
+        </form>
+        <a href="/events">Cancel</a>
+        <%- include('./partials/foot.ejs') %>
+    </div>
+</body>
+</html>
