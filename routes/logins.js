@@ -55,7 +55,7 @@ router.post("/", async (req, res) => {
   } catch (error) {
     // Handle other errors, log them, and render a 503 page
     console.error(error);
-    res.send("Error you are gay");
+    res.send("Error");
   }
 });
 
