@@ -19,14 +19,14 @@ app.get('/about', (request, response) => {
   response.render('about.ejs');
 });
 
-const eventsRouter = require('./routes/events')
-app.use('/events', eventsRouter);
+// const eventsRouter = require('./routes/events')
+// app.use('/events', eventsRouter);
 
 const loginsRouter = require('./routes/logins')
 app.use('/logins', loginsRouter);
 
-const usersRouter = require('./routes/users')
-app.use('/users', usersRouter);
+const signupRouter = require('./routes/signup')
+app.use('/signup', signupRouter);
 
 app.use((req, res) => {
     res.status(404).render('404');
