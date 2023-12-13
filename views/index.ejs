@@ -1,0 +1,30 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/style.ejs') %>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FullStack JavaScript Qap3</title>
+  </head>
+
+  <body>
+    <%- include('./partials/nav.ejs') %>
+    <h1>
+      Welcome to the Events Home Page <% if (user) { %> <%= user.username %> <%
+      } %>
+    </h1>
+
+    <% if (user) { %>
+    <form
+      action="/logout"
+      method="post"
+      onsubmit="return confirm('Are you sure you want to log out of your account?')"
+    >
+      <button class="btnMargin" type="submit">Logout</button>
+    </form>
+    <% } %>
+  </body>
+</html>
