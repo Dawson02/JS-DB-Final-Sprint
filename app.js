@@ -2,8 +2,7 @@
 
 const express = require('express');
 const methodOverride = require('method-override');
-const eventsRouter = require('./routes/events');
-const usersRouter = require('./routes/users'); // Add users route
+const usersRouter = require('./routes/signup'); // Add signup route
 const loginsRouter = require('./routes/logins'); // Add logins route
 
 const app = express();
@@ -14,10 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method'));
 
 // Routes
-app.use('/events', eventsRouter);
-app.use('/users', usersRouter); // Mount the users route at /users
-app.use('/logins', loginsRouter); // Mount the logins route at /logins
+app.use('/about', aboutRouter);
+app.use('/signup', usersRouter); 
+app.use('/logins', loginsRouter); 
 
 // Add other routes as needed
 
 module.exports = app;
+
