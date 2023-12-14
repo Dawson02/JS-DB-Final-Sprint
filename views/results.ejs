@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search Results</title>
+    <%- include('./partials/style.ejs') %> <%- include('./partials/head.ejs') %>
+  </head>
+  <body>
+    <header>
+      <h1>Search Results</h1>
+    </header>
+
+    <main>
+      <% if (postgresResults.length > 0) { %>
+      <ul>
+        <% postgresResults.forEach(result => { %>
+        <li>
+          <!-- Display relevant information about each search result -->
+          <p><strong>Make:</strong> <%= result.make %></p>
+          <p><strong>Model:</strong> <%= result.model %></p>
+          <p><strong>Color:</strong> <%= result.color %></p>
+          <p><strong>Price:</strong> <%= result.price %></p>
+          <p><strong>Fuel Type:</strong> <%= result.fuel_type %></p>
+          <!-- Add more details as needed based on your data structure -->
+        </li>
+        <% }); %>
+      </ul>
+      <% } else { %>
+      <p>No results found.</p>
+      <% } %>
+    </main>
+    <%- include('./partials/foot.ejs') %>
+  </body>
+</html>

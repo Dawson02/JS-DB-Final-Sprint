@@ -1,0 +1,47 @@
+<!-- <html lang="en">
+    <%- include('./partials/style.ejs') %>
+    <%- include('./partials/head.ejs') %>
+    <body>
+        <%- include('./partials/nav.ejs') %>
+        <div class="create content">
+            <form action="/users/<%= locals.theId %>?_method=PATCH" method="POST">
+                <label>Edit User Names:</br>
+                    <input type="text" name="first_name" value="<%= locals.first_name %>" required>
+                    <input type="text" name="last_name" value="<%= locals.last_name %>" required>
+                </label></br>
+                <button>PATCH</button>
+            </form>
+        </div>
+    </body>
+    <%- include('./partials/foot.ejs') %>
+</html> -->
+
+<!-- views/userEdit.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<%- include('./partials/style.ejs') %>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit User</title>
+</head>
+<body>
+<%- include('./partials/nav.ejs') %>
+<h1>Edit User</h1>
+<form action="/users/<%= user.user_id %>?_method=PATCH" method="POST">
+    <!-- <input type="hidden" name="_method" value="PATCH"> -->
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" value="<%= user.username %>" required>
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" value="<%= user.email %>" required>
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" value="<%= user.password %>" required>
+    <br>
+    <button type="submit">Update User</button>
+</form>
+<%- include('./partials/foot.ejs') %>
+</body>
+</html>
