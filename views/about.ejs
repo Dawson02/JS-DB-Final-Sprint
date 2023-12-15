@@ -1,0 +1,41 @@
+<!-- views/about.ejs -->
+
+<html lang="en">
+  <head>
+    <%- include('./partials/style.ejs') %> <%- include('./partials/head.ejs') %>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+  </head>
+  <body>
+    <center>
+      <%- include('./partials/nav.ejs', { isSearchPage: false, user: user }) %>
+      <h1>About Us</h1>
+      <p>
+        Welcome to our car search engine, your go-to destination for finding the
+        perfect car that suits your preferences and needs. Whether you're
+        looking for a sleek sedan, a powerful sports car, or an eco-friendly
+        hybrid, we've got you covered.
+      </p>
+      <p>
+        At our car search engine, we are passionate about connecting car
+        enthusiasts with their dream vehicles. Our extensive database includes a
+        diverse range of cars, ensuring you have plenty of options to explore
+        and discover.
+      </p>
+      <p>
+        Our user-friendly interface and powerful search functionality make it
+        easy for you to filter through various makes, models, colors, and more.
+        We strive to provide a seamless and enjoyable car searching experience
+        for every user.
+      </p>
+      <h2>Discover, Compare, and Find Your Perfect Ride!</h2>
+      <p>
+        Explore our About Us page to learn more about our mission and commitment
+        to delivering excellence in the world of car searching. If you have any
+        questions or feedback, feel free to reach out to our dedicated team.
+      </p>
+      <%- include('./partials/foot.ejs') %>
+    </center>
+  </body>
+</html>

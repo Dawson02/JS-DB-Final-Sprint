@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/style.ejs') %> <%- include('./partials/head.ejs') %>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Delete Login</title>
+  </head>
+  <body>
+    <div class="deleteLoginPage">
+      <%- include('./partials/nav.ejs') %>
+      <h1>Delete Login</h1>
+      <p>
+        Are you sure you want to delete the login with username: <%=
+        login.username %>?
+      </p>
+      <form action="/logins/<%= user.userId %>" method="POST">
+        <input type="hidden" name="_method" value="DELETE" />
+        <!-- No additional fields needed for delete -->
+        <button type="submit">Yes, Delete User</button>
+      </form>
+      <a href="/logins">Cancel</a>
+      <%- include('./partials/foot.ejs') %>
+    </div>
+  </body>
+</html>

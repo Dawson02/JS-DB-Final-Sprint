@@ -1,0 +1,44 @@
+<!-- views/search.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('./partials/style.ejs') %> <%- include('./partials/head.ejs') %>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search</title>
+  </head>
+  <body>
+    <div class="searchPage">
+      <%- include('./partials/nav.ejs', { isSearchPage: true, user: user }) %>
+      <h1>Search</h1>
+
+      <!-- Search Form -->
+      <form id="searchForm" action="/search" method="post">
+        <input type="text" name="query" placeholder="Search..." />
+
+        <!-- Add radio buttons for database choice -->
+        <label>
+          <input type="radio" name="database" value="postgres" checked />
+          PostgreSQL
+        </label>
+        <label>
+          <input type="radio" name="database" value="mongodb" />
+          MongoDB
+        </label>
+
+        <button type="submit">Search</button>
+      </form>
+
+      <!-- Display search results here -->
+      <div id="searchResults">
+        <!-- Results will be rendered here dynamically using JavaScript -->
+      </div>
+
+      <%- include('./partials/foot.ejs') %>
+
+      <!-- Include the search.js script at the end of the body -->
+      <script src="/js/search.js"></script>
+    </div>
+  </body>
+</html>
