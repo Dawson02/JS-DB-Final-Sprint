@@ -1,0 +1,57 @@
+<!-- views/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/style.ejs') %>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome to FullStack JavaScript Qap3</title>
+  </head>
+
+  <body>
+    <center>
+      <%- include('./partials/nav.ejs', { isSearchPage: false, user: user }) %>
+      <section class="welcome-section">
+        <h1>Welcome to FullStack JavaScript Qap3</h1>
+
+        <% if (user) { %>
+        <p>
+          Hello, <%= user.username %>! Explore the world of events and more.
+        </p>
+        <form
+          action="/logout"
+          method="post"
+          onsubmit="return confirm('Are you sure you want to log out of your account?')"
+        >
+          <button class="btnMargin" type="submit">Logout</button>
+        </form>
+        <% } else { %>
+        <p>
+          Discover exciting events and connect with like-minded individuals.
+          Sign up or log in to get started!
+        </p>
+        <a href="/signup" class="btn">Sign Up</a>
+        <a href="/logins" class="btn">Log In</a>
+        <% } %>
+      </section>
+
+      <section class="about-section">
+        <h2>About FullStack JavaScript Qap3</h2>
+        <p>
+          FullStack JavaScript Qap3 is your gateway to a world of events,
+          activities, and community engagement. Whether you're looking for tech
+          meetups, cultural gatherings, or outdoor adventures, we have it all.
+        </p>
+        <p>
+          Our platform is designed to make event discovery and participation
+          easy and enjoyable. Join us on this journey and make every moment
+          memorable.
+        </p>
+      </section>
+
+      <%- include('./partials/foot.ejs') %>
+    </center>
+  </body>
+</html>
